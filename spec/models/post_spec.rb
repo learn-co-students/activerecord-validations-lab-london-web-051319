@@ -18,6 +18,7 @@ RSpec.describe Post, type: :model do
   let(:long_summary) { Post.new(valid_attrs.merge(summary: content)) }
   let(:invalid_cat) { Post.new(valid_attrs.merge(category: "Bowling Ball")) }
   let(:non_clickbait) { Post.new(valid_attrs.merge(title: "True Facts")) }
+  let(:non_clickbait2) { Post.new(valid_attrs.merge(title: "Top 10 Facts")) }
 
   it "is valid" do
     expect(valid_post).to be_valid
@@ -41,5 +42,9 @@ RSpec.describe Post, type: :model do
 
   it "is invalid if not clickbait" do
     expect(non_clickbait).to be_invalid
+  end
+
+  it "is invalid if not clickbait" do
+    expect(non_clickbait2).to be_valid
   end
 end
